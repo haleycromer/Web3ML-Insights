@@ -1,0 +1,27 @@
+
+### Usage/User_Guide.md
+
+```markdown
+# User Guide
+
+Learn how to use Web3ML Insights for performing advanced analytics and insights within blockchain environments.
+
+## Getting Started
+
+### Installation
+
+Follow the [installation instructions](../Setup/Installation.md) to set up Web3ML Insights on your local machine.
+
+### Running Examples
+
+Refer to [Examples.md](Examples.md) for sample code snippets and use cases.
+
+## Usage
+
+### Sentiment Analysis
+
+Perform sentiment analysis on blockchain transactions using the `/api/sentiment-analysis` endpoint.
+
+### Price Prediction
+
+Predict cryptocurrency prices using machine learning models via the `/api/price-prediction` endpoint.
