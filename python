@@ -1,1 +1,31 @@
 * linguist-language=Python
+# analyze_transactions.py
+
+from web3 import Web3
+
+# Connect to Ethereum node (replace 'your-infura-project-id' with your actual Infura Project ID)
+w3 = Web3(Web3.HTTPProvider('https://mainnet.infura.io/v3/your-infura-project-id'))
+
+def analyze_latest_transactions(num_transactions=5):
+    try:
+        # Fetch latest Ethereum transactions
+        block = w3.eth.getBlock('latest')
+        transactions = block['transactions'][:num_transactions]
+
+        # Analyze and print transaction details
+        print(f"Latest {num_transactions} Ethereum transactions:")
+        for idx, tx_hash in enumerate(transactions):
+            tx = w3.eth.getTransaction(tx_hash)
+            print(f"Transaction {idx + 1}:")
+            print(f"Hash: {tx['hash']}")
+            print(f"From: {tx['from']}")
+            print(f"To: {tx['to']}")
+            print(f"Value: {w3.fromWei(tx['value'], 'ether')} ETH")
+            print(f"Gas Price: {tx['gasPrice']} wei")
+            print(f"Gas Used: {tx['gas']} units")
+            print("-----------------------------")
+    except Exception as e:
+        print(f"Error: {e}")
+
+if __name__ == "__main__":
+    analyze_latest_transactions()
